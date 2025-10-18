@@ -36,6 +36,7 @@
 
 pub mod context;
 pub mod num;
+pub mod opencog;
 pub mod runtime;
 pub mod tensor;
 pub mod tokenizer;

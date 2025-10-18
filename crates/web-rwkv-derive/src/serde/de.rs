@@ -45,12 +45,12 @@ pub fn expand_derive_deserialize(input: &mut syn::DeriveInput) -> syn::Result<To
     let impl_block = {
         quote! {
             #[automatically_derived]
-            impl #de_impl_generics #serde::de::DeserializeSeed<#delife> for #seed<#delife, #context, #ident #ty_generics> #where_clause {
+            impl #de_impl_generics _serde::de::DeserializeSeed<#delife> for #seed<#delife, #context, #ident #ty_generics> #where_clause {
                 type Value = #ident #ty_generics;
 
-                fn deserialize<__D>(self, __deserializer: __D) -> #serde::__private::Result<Self::Value, __D::Error>
+                fn deserialize<__D>(self, __deserializer: __D) -> _serde::__private::Result<Self::Value, __D::Error>
                 where
-                    __D: #serde::Deserializer<#delife>,
+                    __D: _serde::Deserializer<#delife>,
                 {
                     #body
                 }
